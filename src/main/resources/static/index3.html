@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>연간 삼성전자 주가</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>일자</th>
+            <th>종가</th>
+            <th>대비</th>
+            <th>등락률</th>
+            <th>시가</th>
+            <th>고가</th>
+            <th>저가</th>
+            <th>거래량</th>
+            <th>거래대금</th>
+            <th>시가총액</th>
+            <th>상장주식수</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <!--JQUERY-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // ajax 서버에 통신
+        $.ajax({
+            async : false,
+            method : "GET",
+            url : "http://127.0.0.1:5000/samsungcsv",
+            success : r => {
+                console.log(r)
+                let tableHtml = ""
+                r.forEach(o => {
+                    tableHtml += `<tr>
+                                    <td>${o.date}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.ending)}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.delta)}</td>
+                                    <td>${o.rate}%</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.current)}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.highest)}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.lowest)}</td>
+                                    <td>${new Intl.NumberFormat('ko-KR').format(o.trans_amount)}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.trans_money)}</td>
+                                    <td>￦${new Intl.NumberFormat('ko-KR').format(o.comp_value)}</td>
+                                    <td>${new Intl.NumberFormat('ko-KR').format(o.total_stock)}</td>
+                                    </tr>`
+                })
+                document.querySelector("tbody").innerHTML = tableHtml
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>인천시 부평구 인구 현황</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>동 이름</th>
+            <th>총 인구</th>
+            <th>남성 인구</th>
+            <th>여성 인구</th>
+            <th>세대수</th>
+            <th>남성 비율</th>
+            <th>여성 비율</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <!--JQUERY-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // ajax 서버에 통신
+        $.ajax({
+            async : false,
+            method : "GET",
+            url : "http://127.0.0.1:5000",
+            success : r => {
+                console.log(r)
+                let tableHtml = ""
+                r.forEach(o => {
+                    tableHtml += `<tr>
+                                    <td>${o.name}</td>
+                                    <td>${o.total}</td>
+                                    <td>${o.man}</td>
+                                    <td>${o.woman}</td>
+                                    <td>${o.house}</td>
+                                    <td>${o.man_percent}%</td>
+                                    <td>${o.woman_percent}%</td>
+                                    </tr>`
+                })
+                document.querySelector("tbody").innerHTML = tableHtml
+            }
+        })
+    </script>
+</body>
+</html>
