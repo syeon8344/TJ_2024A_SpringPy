@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>잡코리아 채용공고</title>
+</head>
+<body>
+    <h3>잡코리아 채용공고</h3>
+
+    <input type="input" id="inputBox" placeholder="검색어를 입력해 주세요."/>
+    <button type="button" onclick="search()">검색</button>
+
+    <div style="display: flex;">
+        <table>
+            <thead>
+                <tr>
+                    <th>경력</th>
+                    <th>공고수</th>
+                </tr>
+            </thead>
+            <tbody id="exp_stat">
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>학력</th>
+                    <th>공고수</th>
+                </tr>
+            </thead>
+            <tbody id="edu_stat">
+            </tbody>
+        </table>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>회사명</th>
+                <th>공고명</th>
+                <th>경력</th>
+                <th>학력</th>
+                <th>계약유형</th>
+                <th>지역</th>
+                <th>채용기간</th>
+            </tr>
+        </thead>
+        <tbody id="total">
+
+        </tbody>
+    </table>
+
+    <!--JQUERY-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        search()
+
+        function search(){
+            keyword = document.querySelector("#inputBox").value
+
+            $.ajax({
+                async: false,
+                url: "http://192.168.30.26:5000/jobkorea",
+                method: "GET",
+                data: {key: keyword},
+                success: resp => {
+                    table = document.querySelector("#total")
+                    tableHtml = ""
+                    resp.forEach(row => {
+                        tableHtml += `<tr><td>${row.회사명}</td><td>${row.공고명}</td><td>${row.경력}</td><td>${row.학력}</td><td>${row.계약유형}</td><td>${row.지역}</td><td>${row.채용기간}</td></tr>`
+                    });
+                    table.innerHTML = tableHtml
+                }
+            })
+
+            $.ajax({
+                async: false,
+                url: "http://192.168.30.26:5000/educationstats",
+                method: "GET",
+                success: resp => {
+                    table = document.querySelector("#edu_stat")
+                    tableHtml = ""
+                    resp.forEach(row => {
+                        tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
+                    });
+                    table.innerHTML = tableHtml
+                }
+            })
+
+            $.ajax({
+                async: false,
+                url: "http://192.168.30.26:5000/experiencestats",
+                method: "GET",
+                success: resp => {
+                    table = document.querySelector("#exp_stat")
+                    tableHtml = ""
+                    resp.forEach(row => {
+                        tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
+                    });
+                    table.innerHTML = tableHtml
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>

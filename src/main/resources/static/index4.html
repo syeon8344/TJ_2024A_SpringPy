@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>쿠우쿠우 전국 매장 정보</title>
+</head>
+<body>
+    <h3>쿠우쿠우 전국 매장 정보</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>매장명</th>
+                <th>연락처</th>
+                <th>주소</th>
+                <th>영업시간</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <!--JQUERY-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://127.0.0.1:5000/qooqoo",
+            method: "GET",
+            success: resp => {
+                table = document.querySelector("tbody")
+                tableHtml = ""
+                resp.forEach(row => {
+                    tableHtml += `<tr><td>${row.번호}</td><td>${row.매장명}</td><td>${row.연락처}</td><td>${row.주소}</td><td>${row.영업시간}</td></tr>`
+                });
+                table.innerHTML = tableHtml
+            }
+        })
+    </script>
+</body>
+</html>
