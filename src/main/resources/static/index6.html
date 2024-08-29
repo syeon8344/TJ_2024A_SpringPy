@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>인천광역시 부평구 전월세 1년 기록</title>
+</head>
+<body>
+    <h3>인천광역시 부평구 전월세 1년 기록</h3>
+
+    <div style="display: flex;">
+        <table>
+            <thead>
+                <tr>
+                    <th>경력</th>
+                    <th>공고수</th>
+                </tr>
+            </thead>
+            <tbody id="exp_stat">
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>학력</th>
+                    <th>공고수</th>
+                </tr>
+            </thead>
+            <tbody id="edu_stat">
+            </tbody>
+        </table>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>시군구</th>
+                <th>번지</th>
+                <th>본번</th>
+                <th>부번</th>
+                <th>단지명</th>
+                <th>전월세구분</th>
+                <th>전용면적(㎡)</th>
+                <th>계약년월</th>
+                <th>계약일</th>
+                <th>보증금(만원)</th>
+                <th>월세금(만원)</th>
+                <th>층</th>
+                <th>건축년도</th>
+                <th>도로명</th>
+                <th>계약기간</th>
+                <th>계약구분</th>
+                <th>갱신요구권</th>
+                <th>사용</th>
+                <th>종전계약</th>
+                <th>보증금(만원)</th>
+                <th>종전계약</th>
+                <th>월세(만원)</th>
+                <th>주택유형</th>
+            </tr>
+        </thead>
+        <tbody id="total">
+
+        </tbody>
+    </table>
+    "count": 11939.0,
+    "mean": 15.839,
+    "std": 8.697,
+    "min": 1.0,
+    "25%": 8.0,
+    "50%": 16.0,
+    "75%": 23.0,
+    "max": 31.0
+    <!--JQUERY-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $.ajax({
+            async: false,
+            url: "http://192.168.30.26:5000/housing",
+            method: "GET",
+            success: resp => {
+                let labels = ['NO', '시군구', '번지', '본번', '부번', '단지명', '전월세구분', '전용면적(㎡)', '계약년월', '계약일', '보증금(만원)', '월세금(만원)', '층', '건축년도', '도로명', '계약기간', '계약구분', '갱신요구권', '사용', '종전계약', '보증금(만원)', '종전계약', '월세(만원)', '주택유형']
+                
+                table = document.querySelector("#total")
+                tableHtml = ""
+                labels.forEach(label => {
+                    data = resp.label  // {기술통계목록}
+                    tableHtml += `<tr><th>${label}</th><td>${data.count}</td><td>${data.mean}</td><td>${data.std}</td><td>${data.min}</td><td>${data['25%']}</td><td>${data['55%']}</td><td>${data['75%']}</td><td>${data['75%']}</td></tr>`
+                })
+                resp.forEach(row => {
+                    tableHtml += `<tr><td>${row.회사명}</td><td>${row.공고명}</td><td>${row.경력}</td><td>${row.학력}</td><td>${row.계약유형}</td><td>${row.지역}</td><td>${row.채용기간}</td></tr>`
+                });
+                table.innerHTML = tableHtml
+            }
+        })
+
+        $.ajax({
+            async: false,
+            url: "http://192.168.30.26:5000/educationstats",
+            method: "GET",
+            success: resp => {
+                table = document.querySelector("#edu_stat")
+                tableHtml = ""
+                resp.forEach(row => {
+                    tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
+                });
+                table.innerHTML = tableHtml
+            }
+        })
+
+        $.ajax({
+            async: false,
+            url: "http://192.168.30.26:5000/experiencestats",
+            method: "GET",
+            success: resp => {
+                table = document.querySelector("#exp_stat")
+                tableHtml = ""
+                resp.forEach(row => {
+                    tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
+                });
+                table.innerHTML = tableHtml
+            }
+        })
+    
+
+    </script>
+</body>
+</html>
