@@ -2,92 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>인천광역시 부평구 전월세 1년 기록</title>
+    <title>인천광역시 부평구 전월세 3년 기록</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        tbody {
+            text-align: right;
+        }
+        
+    </style>
 </head>
 <body>
-    <h3>인천광역시 부평구 전월세 1년 기록</h3>
+    <h3>인천광역시 부평구 전월세 3년 기록</h3>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
+            <span>부평구 동 이름 목록</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>동 이름</th>
+                    </tr>
+                </thead>
+                <tbody id="uniquenames">
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <span>전월세 기준 전용면적 기술통계</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>월세</th>
+                        <th>전세</th>
+                    </tr>
+                </thead>
+                <tbody id="area">
+                </tbody>
+            </table>
+        </div>
 
-    <div style="display: flex;">
+        <div>
+            <span>최다 거래량 단지명 5개</span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>단지명</th>
+                        <th>거래량</th>
+                    </tr>
+                </thead>
+                <tbody id="toptrades">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <span>전체 기술통계</span>
         <table>
-            <thead>
-                <tr>
-                    <th>경력</th>
-                    <th>공고수</th>
-                </tr>
-            </thead>
-            <tbody id="exp_stat">
-            </tbody>
-        </table>
+            <thead id="bottom_thead">
 
-        <table>
-            <thead>
-                <tr>
-                    <th>학력</th>
-                    <th>공고수</th>
-                </tr>
             </thead>
-            <tbody id="edu_stat">
+            <tbody id="bottom_tbody">
+
             </tbody>
         </table>
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th>시군구</th>
-                <th>번지</th>
-                <th>본번</th>
-                <th>부번</th>
-                <th>단지명</th>
-                <th>전월세구분</th>
-                <th>전용면적(㎡)</th>
-                <th>계약년월</th>
-                <th>계약일</th>
-                <th>보증금(만원)</th>
-                <th>월세금(만원)</th>
-                <th>층</th>
-                <th>건축년도</th>
-                <th>도로명</th>
-                <th>계약기간</th>
-                <th>계약구분</th>
-                <th>갱신요구권</th>
-                <th>사용</th>
-                <th>종전계약</th>
-                <th>보증금(만원)</th>
-                <th>종전계약</th>
-                <th>월세(만원)</th>
-                <th>주택유형</th>
-            </tr>
-        </thead>
-        <tbody id="total">
 
-        </tbody>
-    </table>
-    "count": 11939.0,
-    "mean": 15.839,
-    "std": 8.697,
-    "min": 1.0,
-    "25%": 8.0,
-    "50%": 16.0,
-    "75%": 23.0,
-    "max": 31.0
     <!--JQUERY-->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
         $.ajax({
             async: false,
-            url: "http://192.168.30.26:5000/housing",
+            url: "http://localhost:5000/housing",
             method: "GET",
             success: resp => {
-                let labels = ['NO', '시군구', '번지', '본번', '부번', '단지명', '전월세구분', '전용면적(㎡)', '계약년월', '계약일', '보증금(만원)', '월세금(만원)', '층', '건축년도', '도로명', '계약기간', '계약구분', '갱신요구권', '사용', '종전계약', '보증금(만원)', '종전계약', '월세(만원)', '주택유형']
-                
-                table = document.querySelector("#total")
-                tableHtml = ""
+                let theadHtml = "<tr><th></th>"
+                let tableHtml = ""
+                let percent_25 = "<tr><th>25%</th>"
+                let percent_50 = "<tr><th>50%</th>"
+                let percent_75 = "<tr><th>75%</th>"
+                let count = "<tr><th>count</th>"
+                let max = "<tr><th>max</th>"
+                let mean = "<tr><th>mean</th>"
+                let labels = Object.keys(resp)  // ['건축년도', '계약년월', '계약일', '본번', '부번', '월세금(만원)', '전용면적(㎡)', '종전계약 월세(만원)', '층']
+                let table = document.querySelector("#bottom_tbody")
+                let thead = document.querySelector("#bottom_thead")
                 labels.forEach(label => {
-                    data = resp.label  // {기술통계목록}
-                    tableHtml += `<tr><th>${label}</th><td>${data.count}</td><td>${data.mean}</td><td>${data.std}</td><td>${data.min}</td><td>${data['25%']}</td><td>${data['55%']}</td><td>${data['75%']}</td><td>${data['75%']}</td></tr>`
+                    let data = resp[`${label}`]  // {기술통계목록}
+                    theadHtml += `<th>${label}</th>`
+                    percent_25 += `<td>${data['25%']}</td>`
+                    percent_50 += `<td>${data['50%']}</td>`
+                    percent_75 += `<td>${data['75%']}</td>`
+                    count += `<td>${data['count']}</td>`
+                    max += `<td>${data['max']}</td>`
+                    mean += `<td>${data['mean']}</td>`
                 })
-                resp.forEach(row => {
-                    tableHtml += `<tr><td>${row.회사명}</td><td>${row.공고명}</td><td>${row.경력}</td><td>${row.학력}</td><td>${row.계약유형}</td><td>${row.지역}</td><td>${row.채용기간}</td></tr>`
+                theadHtml += "</tr>"
+                percent_25 += "</tr>"
+                percent_50 += "</tr>"
+                percent_75 += "</tr>"
+                count += "</tr>"
+                max += "</tr>"
+                mean += "</tr>"
+                tableHtml += percent_25 + percent_50 + percent_75 + count + max + mean
+                table.innerHTML = tableHtml
+                thead.innerHTML = theadHtml
+            }
+        })
+
+        $.ajax({
+            async: false,
+            url: "http://localhost:5000/area",
+            method: "GET",
+            success: resp => {
+                let table = document.querySelector("#area")
+                let tableHtml = ""
+                let labels = Object.keys(resp)
+                labels.forEach(label => {
+                    let data = resp[`${label}`]
+                    tableHtml += `<tr><th>${label}</th><td>${data['월세']}</td><td>${data['전세']}</td></tr>`
                 });
                 table.innerHTML = tableHtml
             }
@@ -95,13 +130,14 @@
 
         $.ajax({
             async: false,
-            url: "http://192.168.30.26:5000/educationstats",
+            url: "http://localhost:5000/uniquenames",
             method: "GET",
             success: resp => {
-                table = document.querySelector("#edu_stat")
-                tableHtml = ""
+                console.log(resp);
+                let table = document.querySelector("#uniquenames")
+                let tableHtml = ""
                 resp.forEach(row => {
-                    tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
+                    tableHtml += `<tr><td>${row}</td></tr>`
                 });
                 table.innerHTML = tableHtml
             }
@@ -109,14 +145,16 @@
 
         $.ajax({
             async: false,
-            url: "http://192.168.30.26:5000/experiencestats",
+            url: "http://localhost:5000/toptrades",
             method: "GET",
             success: resp => {
-                table = document.querySelector("#exp_stat")
-                tableHtml = ""
-                resp.forEach(row => {
-                    tableHtml += `<tr><td>${row.name}</td><td>${row.number}</td></tr>`
-                });
+                let table = document.querySelector("#toptrades")
+                let names = resp['index']
+                let data = resp['data']
+                let tableHtml = ""
+                for (let i = 0; i < names.length; i++){
+                    tableHtml += `<tr><th>${i+1}</th><td>${names[i]}</td><td>${data[i]}</td></tr>`
+                }
                 table.innerHTML = tableHtml
             }
         })
