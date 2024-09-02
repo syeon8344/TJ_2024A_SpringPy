@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.task1.AccountDao">
+
+    <!-- [C] 가계부 항목 등록 -->
+    <insert id="add" parameterType="example.task1.AccountDto">
+        insert into account(description, amount, record_date)
+        values (#{description}, #{amount}, #{record_date})
+    </insert>
+
+    <!-- [R] 가계부 전체 조회 -->
+    <select id="getAll" resultType="example.task1.AccountDto">
+        select * from account
+    </select>
+
+    <!-- [U] 가계부 항목 수정 -->
+    <update id="edit" parameterType="example.task1.AccountDto">
+        update account
+        set description = #{description}, amount = #{amount}, record_date = #{record_date}
+        where id = #{id}
+    </update>
+
+    <!-- [D] 가계부 항목 삭제 -->
+    <delete id="delete" parameterType="int">
+        delete from account
+        where id = #{id}
+    </delete>
+
+</mapper>

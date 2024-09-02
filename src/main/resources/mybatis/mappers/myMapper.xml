@@ -25,6 +25,7 @@
     <select id="findById" parameterType="int" resultType="example.mybatis.UserDto">
         select * from user where id = #{id}
     </select>
+
     <!-- [U] 3. 수정 -->
     <update id="update" parameterType="example.mybatis.UserDto">
         update user
