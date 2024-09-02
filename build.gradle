@@ -33,6 +33,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     // [6] JAVA Mail Sender
     implementation 'org.springframework.boot:spring-boot-starter-mail'
+    // [7] MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 
 }
 
