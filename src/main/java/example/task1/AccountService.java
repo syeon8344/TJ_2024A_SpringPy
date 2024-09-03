@@ -17,7 +17,7 @@ public class AccountService {
     public int add(AccountDto dto){
         int result = accountDao.add(dto);
         if(result == 1) {
-            log.info("항목 등록 성공.");
+            log.info("successfully added.");
             return result;
         }
         else{
@@ -34,7 +34,7 @@ public class AccountService {
     public int edit(AccountDto dto){
         int result = accountDao.edit(dto);
         if(result == 1) {
-            log.info("항목 수정 성공.");
+            log.info("successfully edited.");
             return result;
         }
         else{
@@ -46,7 +46,7 @@ public class AccountService {
     public int delete(int id){
         int result = accountDao.delete(id);
         if(result == 1) {
-            log.info("항목 삭제 성공.");
+            log.info("successfully deleted.");
             return result;
         }
         else{

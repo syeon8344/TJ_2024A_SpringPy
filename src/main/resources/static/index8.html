@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h3>가계부</h3>
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-4">
                 <input id="description" type="text" class="form-control" placeholder="내역을 입력해주세요."/>
             </div>
@@ -19,14 +19,14 @@
                 <input id="amount" type="text" class="form-control" placeholder="금액을 입력해주세요."/>
             </div>
             <div class="col-3">
-                <input id="date" type="date" class="form-control"/>
+                <input id="record_date" type="date" class="form-control"/>
             </div>
             <div class="col-2">
                 <button type="button" class="btn btn-success" onclick="add()">내역 추가</button>
             </div>
         </div>
-
-        <table class="table">
+        <label>수정시 상단 입력창에 작성후 수정 버튼을 눌러주세요.</label>
+        <table id="table" class="table">
             <thead>
                 <tr>
                     <th>번호</th>
@@ -47,13 +47,66 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <script>
+        getall()
+
         function add(){
             let description = document.querySelector('#description').value
-            let 
+            let amount = document.querySelector("#amount").value
+            let record_date = document.querySelector("#record_date").value
             $.ajax({
-                url
+                url: "/account/add",
                 method: "POST",
-                data: 
+                data: {description: description, amount: amount, record_date: record_date},
+
+                success: resp => {
+                    console.log("added")
+                    console.log(resp)
+                    window.location.reload();
+                }
+            })
+        }
+
+        function getall(){
+            $.ajax({
+                async: false,
+                url: "/account/all",
+                method: "GET",
+                success: resp => {
+                    let table = document.querySelector("#account_table")
+                    let tableHtml = ""
+                    resp.forEach(row => {
+                        tableHtml += `<tr><td>${row.id}</td><td>${row.description}</td><td>${row.amount}</td><td>${row.record_date}</td><td><button type="button" class="btn btn-warning mx-2" onclick="edit(${row.id})">수정</button><button type="button" class="btn btn-danger mx-2" onclick="_delete(${row.id})">삭제</button></td></tr>`
+                    });
+                    table.innerHTML = tableHtml
+                }
+            })
+        }
+
+        function edit(id){
+            console.log("edit", id);
+            
+            let description = document.querySelector('#description').value
+            let amount = document.querySelector("#amount").value
+            let record_date = document.querySelector("#record_date").value
+            $.ajax({
+                url: "/account/edit",
+                method: "PUT",
+                data: {id: parseInt(id), description: description, amount: amount, record_date: record_date},
+                success: resp => {
+                    window.location.reload();
+                }
+            })
+        }
+
+        function _delete(id){
+            console.log("delete", id);
+            $.ajax({
+                url: "/account/delete",
+                method: "DELETE",
+                data: {id: parseInt(id)},
+                success: resp => {
+                    window.location.reload();
+                }
             })
         }
 
