@@ -1,450 +1,271 @@
-2024-09-03T09:39:54.637+09:00  INFO 6012 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 6012 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:39:54.655+09:00  INFO 6012 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:39:56.536+09:00  INFO 6012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:39:56.554+09:00  INFO 6012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:39:56.556+09:00  INFO 6012 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:39:56.674+09:00  INFO 6012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:39:56.675+09:00  INFO 6012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1919 ms
-2024-09-03T09:39:56.926+09:00  INFO 6012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:39:57.511+09:00  INFO 6012 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4de79b7d
-2024-09-03T09:39:57.515+09:00  INFO 6012 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:40:00.685+09:00  WARN 6012 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:40:00.861+09:00  INFO 6012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:40:00.872+09:00  INFO 6012 --- [main] example.task1.AppStart                   : Started AppStart in 6.777 seconds (process running for 8.911)
-2024-09-03T09:40:36.966+09:00  INFO 6012 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:40:52.296+09:00 ERROR 6012 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-### The error may exist in file [C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\resources\main\mybatis\mappers\accountMapper\accountMapper.xml]
-### The error may involve example.task1.AccountDao.add-Inline
-### The error occurred while setting parameters
-### SQL: insert into account(description, amount, record_date)         values (?, ?, ?)
-### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-; Column 'record_date' cannot be null] with root cause
-
-java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184) ~[mybatis-3.5.14.jar:3.5.14]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
-	at jdk.proxy2/jdk.proxy2.$Proxy66.insert(Unknown Source) ~[na:na]
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272) ~[mybatis-spring-3.0.3.jar:3.0.3]
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
-	at jdk.proxy2/jdk.proxy2.$Proxy67.add(Unknown Source) ~[na:na]
-	at example.task1.AccountService.add(AccountService.java:18) ~[main/:na]
-	at example.task1.AccountController.add(AccountController.java:18) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.25.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.25.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
-
-2024-09-03T09:41:27.904+09:00  INFO 2316 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 2316 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:41:27.907+09:00  INFO 2316 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:41:29.387+09:00  INFO 2316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:41:29.402+09:00  INFO 2316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:41:29.402+09:00  INFO 2316 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:41:29.486+09:00  INFO 2316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:41:29.487+09:00  INFO 2316 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1504 ms
-2024-09-03T09:41:29.684+09:00  INFO 2316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:41:30.144+09:00  INFO 2316 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T09:41:30.147+09:00  INFO 2316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:41:30.901+09:00  WARN 2316 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:41:31.010+09:00  INFO 2316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:41:31.020+09:00  INFO 2316 --- [main] example.task1.AppStart                   : Started AppStart in 3.649 seconds (process running for 4.046)
-2024-09-03T09:41:39.637+09:00  INFO 2316 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:41:39.884+09:00 ERROR 2316 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-### The error may exist in file [C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\resources\main\mybatis\mappers\accountMapper\accountMapper.xml]
-### The error may involve example.task1.AccountDao.add-Inline
-### The error occurred while setting parameters
-### SQL: insert into account(description, amount, record_date)         values (?, ?, ?)
-### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-; Column 'record_date' cannot be null] with root cause
-
-java.sql.SQLIntegrityConstraintViolationException: Column 'record_date' cannot be null
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184) ~[mybatis-3.5.14.jar:3.5.14]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
-	at jdk.proxy2/jdk.proxy2.$Proxy66.insert(Unknown Source) ~[na:na]
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272) ~[mybatis-spring-3.0.3.jar:3.0.3]
-	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
-	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
-	at jdk.proxy2/jdk.proxy2.$Proxy67.add(Unknown Source) ~[na:na]
-	at example.task1.AccountService.add(AccountService.java:18) ~[main/:na]
-	at example.task1.AccountController.add(AccountController.java:18) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.25.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.10.jar:6.1.10]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.25.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.10.jar:6.1.10]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.25.jar:10.1.25]
-	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
-
-2024-09-03T09:42:43.308+09:00  INFO 10100 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 10100 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:42:43.316+09:00  INFO 10100 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:42:44.765+09:00  INFO 10100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:42:44.779+09:00  INFO 10100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:42:44.779+09:00  INFO 10100 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:42:44.858+09:00  INFO 10100 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:42:44.859+09:00  INFO 10100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1461 ms
-2024-09-03T09:42:45.088+09:00  INFO 10100 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:42:45.438+09:00  INFO 10100 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47272cd3
-2024-09-03T09:42:45.441+09:00  INFO 10100 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:42:46.178+09:00  WARN 10100 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:42:46.282+09:00  INFO 10100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:42:46.294+09:00  INFO 10100 --- [main] example.task1.AppStart                   : Started AppStart in 3.536 seconds (process running for 3.941)
-2024-09-03T09:42:50.982+09:00  INFO 10100 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:42:56.962+09:00  INFO 10100 --- [http-nio-8080-exec-3] example.task1.AccountService             : 항목 등록 성공.
-2024-09-03T09:44:20.340+09:00  INFO 10228 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 10228 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:44:20.344+09:00  INFO 10228 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:44:21.961+09:00  INFO 10228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:44:21.976+09:00  INFO 10228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:44:21.976+09:00  INFO 10228 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:44:22.057+09:00  INFO 10228 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:44:22.057+09:00  INFO 10228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1641 ms
-2024-09-03T09:44:22.241+09:00  INFO 10228 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:44:22.610+09:00  INFO 10228 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T09:44:22.613+09:00  INFO 10228 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:44:23.368+09:00  WARN 10228 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:44:23.471+09:00  INFO 10228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:44:23.480+09:00  INFO 10228 --- [main] example.task1.AppStart                   : Started AppStart in 3.686 seconds (process running for 4.073)
-2024-09-03T09:44:28.705+09:00  INFO 10228 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:44:28.824+09:00  INFO 10228 --- [http-nio-8080-exec-1] example.task1.AccountService             : successfully added.
-2024-09-03T09:54:00.809+09:00  INFO 9236 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 9236 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:54:00.813+09:00  INFO 9236 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:54:02.523+09:00  INFO 9236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:54:02.537+09:00  INFO 9236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:54:02.538+09:00  INFO 9236 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:54:02.629+09:00  INFO 9236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:54:02.629+09:00  INFO 9236 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1740 ms
-2024-09-03T09:54:02.835+09:00  INFO 9236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:54:03.239+09:00  INFO 9236 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T09:54:03.242+09:00  INFO 9236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:54:04.890+09:00  WARN 9236 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:54:05.499+09:00  INFO 9236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:54:05.514+09:00  INFO 9236 --- [main] example.task1.AppStart                   : Started AppStart in 5.299 seconds (process running for 5.729)
-2024-09-03T09:54:09.622+09:00  INFO 9236 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:54:09.726+09:00  INFO 9236 --- [http-nio-8080-exec-1] example.task1.AccountService             : successfully added.
-2024-09-03T09:56:22.202+09:00  INFO 9824 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 9824 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:56:22.207+09:00  INFO 9824 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:56:23.735+09:00  INFO 9824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:56:23.750+09:00  INFO 9824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:56:23.751+09:00  INFO 9824 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:56:23.857+09:00  INFO 9824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:56:23.858+09:00  INFO 9824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1585 ms
-2024-09-03T09:56:24.057+09:00  INFO 9824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:56:24.420+09:00  INFO 9824 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T09:56:24.422+09:00  INFO 9824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:56:25.170+09:00  WARN 9824 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:56:25.284+09:00  INFO 9824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:56:25.293+09:00  INFO 9824 --- [main] example.task1.AppStart                   : Started AppStart in 3.655 seconds (process running for 4.071)
-2024-09-03T09:56:32.239+09:00  INFO 9824 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T09:58:14.149+09:00  INFO 1868 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 1868 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T09:58:14.153+09:00  INFO 1868 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T09:58:15.600+09:00  INFO 1868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T09:58:15.616+09:00  INFO 1868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T09:58:15.616+09:00  INFO 1868 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T09:58:15.697+09:00  INFO 1868 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T09:58:15.698+09:00  INFO 1868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1468 ms
-2024-09-03T09:58:15.910+09:00  INFO 1868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T09:58:16.256+09:00  INFO 1868 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47272cd3
-2024-09-03T09:58:16.259+09:00  INFO 1868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T09:58:17.012+09:00  WARN 1868 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T09:58:17.120+09:00  INFO 1868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T09:58:17.130+09:00  INFO 1868 --- [main] example.task1.AppStart                   : Started AppStart in 3.533 seconds (process running for 3.926)
-2024-09-03T09:58:23.013+09:00  INFO 1868 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:00:52.281+09:00  INFO 6156 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 6156 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:00:52.289+09:00  INFO 6156 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:00:53.879+09:00  INFO 6156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:00:53.895+09:00  INFO 6156 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:00:53.895+09:00  INFO 6156 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:00:53.976+09:00  INFO 6156 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:00:53.977+09:00  INFO 6156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1609 ms
-2024-09-03T10:00:54.169+09:00  INFO 6156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:00:54.525+09:00  INFO 6156 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@236eccd1
-2024-09-03T10:00:54.527+09:00  INFO 6156 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:00:55.271+09:00  WARN 6156 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:00:55.374+09:00  INFO 6156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:00:55.385+09:00  INFO 6156 --- [main] example.task1.AppStart                   : Started AppStart in 3.656 seconds (process running for 4.061)
-2024-09-03T10:00:57.694+09:00  INFO 6156 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:03:11.466+09:00  INFO 7324 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 7324 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:03:11.470+09:00  INFO 7324 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:03:12.941+09:00  INFO 7324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:03:12.957+09:00  INFO 7324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:03:12.957+09:00  INFO 7324 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:03:13.049+09:00  INFO 7324 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:03:13.050+09:00  INFO 7324 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1506 ms
-2024-09-03T10:03:13.265+09:00  INFO 7324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:03:13.633+09:00  INFO 7324 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47272cd3
-2024-09-03T10:03:13.635+09:00  INFO 7324 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:03:14.439+09:00  WARN 7324 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:03:14.545+09:00  INFO 7324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:03:14.554+09:00  INFO 7324 --- [main] example.task1.AppStart                   : Started AppStart in 3.631 seconds (process running for 4.051)
-2024-09-03T10:03:21.368+09:00  INFO 7324 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:04:09.005+09:00  INFO 2884 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 2884 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:04:09.009+09:00  INFO 2884 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:04:10.481+09:00  INFO 2884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:04:10.494+09:00  INFO 2884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:04:10.495+09:00  INFO 2884 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:04:10.573+09:00  INFO 2884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:04:10.574+09:00  INFO 2884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1499 ms
-2024-09-03T10:04:10.784+09:00  INFO 2884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:04:11.141+09:00  INFO 2884 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:04:11.143+09:00  INFO 2884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:04:11.918+09:00  WARN 2884 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:04:12.023+09:00  INFO 2884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:04:12.033+09:00  INFO 2884 --- [main] example.task1.AppStart                   : Started AppStart in 3.587 seconds (process running for 4.034)
-2024-09-03T10:04:15.936+09:00  INFO 2884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:05:04.533+09:00  INFO 2884 --- [http-nio-8080-exec-6] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:05:06.159+09:00  INFO 2884 --- [http-nio-8080-exec-8] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:05:06.677+09:00  INFO 2884 --- [http-nio-8080-exec-10] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:05:59.214+09:00  INFO 2884 --- [http-nio-8080-exec-2] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:06:50.505+09:00  INFO 3256 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 3256 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:06:50.509+09:00  INFO 3256 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:06:52.169+09:00  INFO 3256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:06:52.184+09:00  INFO 3256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:06:52.185+09:00  INFO 3256 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:06:52.281+09:00  INFO 3256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:06:52.281+09:00  INFO 3256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1695 ms
-2024-09-03T10:06:52.482+09:00  INFO 3256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:06:52.816+09:00  INFO 3256 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:06:52.818+09:00  INFO 3256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:06:53.628+09:00  WARN 3256 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:06:53.753+09:00  INFO 3256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:06:53.765+09:00  INFO 3256 --- [main] example.task1.AppStart                   : Started AppStart in 3.836 seconds (process running for 4.3)
-2024-09-03T10:06:53.907+09:00  INFO 3256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:07:10.356+09:00  INFO 3256 --- [http-nio-8080-exec-6] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:07:18.145+09:00  INFO 3256 --- [http-nio-8080-exec-8] example.task1.AccountService             : successfully edited.
-2024-09-03T10:07:42.295+09:00  INFO 3256 --- [http-nio-8080-exec-1] example.task1.AccountService             : successfully added.
-2024-09-03T10:08:38.246+09:00  INFO 11516 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 11516 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:08:38.251+09:00  INFO 11516 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:08:39.685+09:00  INFO 11516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:08:39.701+09:00  INFO 11516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:08:39.701+09:00  INFO 11516 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:08:39.781+09:00  INFO 11516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:08:39.781+09:00  INFO 11516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1466 ms
-2024-09-03T10:08:39.983+09:00  INFO 11516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:08:40.328+09:00  INFO 11516 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:08:40.331+09:00  INFO 11516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:08:41.087+09:00  WARN 11516 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:08:41.190+09:00  INFO 11516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:08:41.199+09:00  INFO 11516 --- [main] example.task1.AppStart                   : Started AppStart in 3.5 seconds (process running for 3.891)
-2024-09-03T10:08:46.895+09:00  INFO 11516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:08:49.315+09:00  INFO 11516 --- [http-nio-8080-exec-4] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:08:51.559+09:00  INFO 11516 --- [http-nio-8080-exec-8] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:08:52.560+09:00  INFO 11516 --- [http-nio-8080-exec-2] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:08:52.942+09:00  INFO 11516 --- [http-nio-8080-exec-6] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:08:54.311+09:00  INFO 11516 --- [http-nio-8080-exec-10] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:09:04.732+09:00  INFO 11516 --- [http-nio-8080-exec-4] example.task1.AccountService             : successfully added.
-2024-09-03T10:11:07.077+09:00  INFO 12224 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 12224 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:11:07.081+09:00  INFO 12224 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:11:08.519+09:00  INFO 12224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:11:08.533+09:00  INFO 12224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:11:08.534+09:00  INFO 12224 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:11:08.613+09:00  INFO 12224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:11:08.614+09:00  INFO 12224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1461 ms
-2024-09-03T10:11:08.799+09:00  INFO 12224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:11:09.175+09:00  INFO 12224 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:11:09.177+09:00  INFO 12224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:11:09.982+09:00  WARN 12224 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:11:10.097+09:00  INFO 12224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:11:10.107+09:00  INFO 12224 --- [main] example.task1.AppStart                   : Started AppStart in 3.587 seconds (process running for 4.07)
-2024-09-03T10:11:15.477+09:00  INFO 12224 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:11:18.893+09:00  INFO 12224 --- [http-nio-8080-exec-5] example.task1.AccountService             : successfully deleted.
-2024-09-03T10:11:26.840+09:00  INFO 12224 --- [http-nio-8080-exec-8] example.task1.AccountService             : successfully added.
-2024-09-03T10:11:28.535+09:00  INFO 12224 --- [http-nio-8080-exec-9] example.task1.AccountService             : successfully added.
-2024-09-03T10:11:28.659+09:00  INFO 12224 --- [http-nio-8080-exec-10] example.task1.AccountService             : successfully added.
-2024-09-03T10:12:34.501+09:00  INFO 12088 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 12088 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:12:34.505+09:00  INFO 12088 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:12:35.936+09:00  INFO 12088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:12:35.950+09:00  INFO 12088 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:12:35.950+09:00  INFO 12088 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:12:36.029+09:00  INFO 12088 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:12:36.029+09:00  INFO 12088 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1455 ms
-2024-09-03T10:12:36.266+09:00  INFO 12088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:12:36.612+09:00  INFO 12088 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47272cd3
-2024-09-03T10:12:36.614+09:00  INFO 12088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:12:37.534+09:00  WARN 12088 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:12:37.636+09:00  INFO 12088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:12:37.646+09:00  INFO 12088 --- [main] example.task1.AppStart                   : Started AppStart in 3.743 seconds (process running for 4.212)
-2024-09-03T10:12:41.694+09:00  INFO 12088 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:12:46.805+09:00  INFO 12088 --- [http-nio-8080-exec-4] example.task1.AccountService             : successfully added.
-2024-09-03T10:14:09.471+09:00  INFO 11856 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 11856 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:14:09.474+09:00  INFO 11856 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:14:10.975+09:00  INFO 11856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:14:10.992+09:00  INFO 11856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:14:10.992+09:00  INFO 11856 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:14:11.076+09:00  INFO 11856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:14:11.077+09:00  INFO 11856 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1534 ms
-2024-09-03T10:14:11.282+09:00  INFO 11856 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:14:11.644+09:00  INFO 11856 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:14:11.646+09:00  INFO 11856 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:14:12.601+09:00  WARN 11856 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:14:12.722+09:00  INFO 11856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:14:12.733+09:00  INFO 11856 --- [main] example.task1.AppStart                   : Started AppStart in 3.811 seconds (process running for 4.225)
-2024-09-03T10:14:14.306+09:00  INFO 11856 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:14:57.020+09:00  INFO 11856 --- [http-nio-8080-exec-6] example.task1.AccountService             : successfully added.
-2024-09-03T10:17:00.800+09:00  INFO 7924 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 7924 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:17:00.810+09:00  INFO 7924 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:17:02.320+09:00  INFO 7924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:17:02.337+09:00  INFO 7924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:17:02.338+09:00  INFO 7924 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:17:02.440+09:00  INFO 7924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:17:02.441+09:00  INFO 7924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1559 ms
-2024-09-03T10:17:02.665+09:00  INFO 7924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:17:02.995+09:00  INFO 7924 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:17:02.997+09:00  INFO 7924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:17:03.764+09:00  WARN 7924 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:17:03.890+09:00  INFO 7924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:17:03.901+09:00  INFO 7924 --- [main] example.task1.AppStart                   : Started AppStart in 3.645 seconds (process running for 4.048)
-2024-09-03T10:17:08.463+09:00  INFO 7924 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:17:13.595+09:00  INFO 7924 --- [http-nio-8080-exec-4] example.task1.AccountService             : successfully added.
-2024-09-03T10:17:30.070+09:00  INFO 7924 --- [http-nio-8080-exec-8] example.task1.AccountService             : successfully added.
-2024-09-03T10:17:53.768+09:00  INFO 11340 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 11340 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:17:53.773+09:00  INFO 11340 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:17:55.242+09:00  INFO 11340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:17:55.255+09:00  INFO 11340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:17:55.255+09:00  INFO 11340 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:17:55.332+09:00  INFO 11340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:17:55.332+09:00  INFO 11340 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1494 ms
-2024-09-03T10:17:55.521+09:00  INFO 11340 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:17:55.878+09:00  INFO 11340 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180b3819
-2024-09-03T10:17:55.880+09:00  INFO 11340 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:17:56.670+09:00  WARN 11340 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:17:56.773+09:00  INFO 11340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:17:56.782+09:00  INFO 11340 --- [main] example.task1.AppStart                   : Started AppStart in 3.575 seconds (process running for 3.976)
-2024-09-03T10:17:59.823+09:00  INFO 11340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-03T10:18:06.756+09:00  INFO 11340 --- [http-nio-8080-exec-4] example.task1.AccountService             : successfully added.
-2024-09-03T10:19:56.151+09:00  INFO 7468 --- [main] example.task1.AppStart                   : Starting AppStart using Java 17.0.11 with PID 7468 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
-2024-09-03T10:19:56.155+09:00  INFO 7468 --- [main] example.task1.AppStart                   : No active profile set, falling back to 1 default profile: "default"
-2024-09-03T10:19:57.584+09:00  INFO 7468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-03T10:19:57.600+09:00  INFO 7468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-03T10:19:57.600+09:00  INFO 7468 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
-2024-09-03T10:19:57.680+09:00  INFO 7468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-03T10:19:57.681+09:00  INFO 7468 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1461 ms
-2024-09-03T10:19:57.875+09:00  INFO 7468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-03T10:19:58.225+09:00  INFO 7468 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47272cd3
-2024-09-03T10:19:58.227+09:00  INFO 7468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-03T10:19:58.975+09:00  WARN 7468 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2024-09-03T10:19:59.081+09:00  INFO 7468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-09-03T10:19:59.090+09:00  INFO 7468 --- [main] example.task1.AppStart                   : Started AppStart in 3.497 seconds (process running for 3.904)
+2024-09-09T12:11:54.902+09:00  INFO 4736 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 4736 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:11:54.914+09:00  INFO 4736 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:11:56.922+09:00  WARN 4736 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:11:57.666+09:00  INFO 4736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:11:57.689+09:00  INFO 4736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:11:57.691+09:00  INFO 4736 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:11:57.922+09:00  INFO 4736 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:11:57.924+09:00  INFO 4736 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2822 ms
+2024-09-09T12:11:58.789+09:00  WARN 4736 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:11:59.699+09:00  INFO 4736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:12:01.100+09:00  INFO 4736 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6870cfac
+2024-09-09T12:12:01.104+09:00  INFO 4736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:12:02.009+09:00  INFO 4736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:12:02.023+09:00  INFO 4736 --- [main] web.AppStart                             : Started AppStart in 7.892 seconds (process running for 10.431)
+2024-09-09T12:12:15.154+09:00  INFO 4736 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T12:21:45.039+09:00  INFO 9292 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 9292 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:21:45.046+09:00  INFO 9292 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:21:46.012+09:00  WARN 9292 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:21:46.582+09:00  INFO 9292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:21:46.598+09:00  INFO 9292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:21:46.598+09:00  INFO 9292 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:21:46.677+09:00  INFO 9292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:21:46.678+09:00  INFO 9292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1546 ms
+2024-09-09T12:21:47.211+09:00  WARN 9292 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:21:47.537+09:00  INFO 9292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:21:47.932+09:00  INFO 9292 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ffced4e
+2024-09-09T12:21:47.935+09:00  INFO 9292 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:21:48.175+09:00  INFO 9292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:21:48.216+09:00  INFO 9292 --- [main] web.AppStart                             : Started AppStart in 3.846 seconds (process running for 4.269)
+2024-09-09T12:21:55.082+09:00  INFO 9292 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T12:44:37.254+09:00  INFO 12344 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 12344 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:44:37.261+09:00  INFO 12344 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:44:38.217+09:00  WARN 12344 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:44:38.761+09:00  INFO 12344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:44:38.777+09:00  INFO 12344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:44:38.777+09:00  INFO 12344 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:44:38.860+09:00  INFO 12344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:44:38.860+09:00  INFO 12344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1519 ms
+2024-09-09T12:44:39.322+09:00  WARN 12344 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:44:39.608+09:00  INFO 12344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:44:39.995+09:00  INFO 12344 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@636985df
+2024-09-09T12:44:39.997+09:00  INFO 12344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:44:40.216+09:00  INFO 12344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:44:40.236+09:00  INFO 12344 --- [main] web.AppStart                             : Started AppStart in 3.562 seconds (process running for 5.736)
+2024-09-09T12:44:42.919+09:00  INFO 12344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T12:45:54.701+09:00  INFO 13392 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 13392 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:45:54.705+09:00  INFO 13392 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:45:55.677+09:00  WARN 13392 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:45:56.273+09:00  INFO 13392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:45:56.291+09:00  INFO 13392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:45:56.292+09:00  INFO 13392 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:45:56.377+09:00  INFO 13392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:45:56.377+09:00  INFO 13392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1597 ms
+2024-09-09T12:45:56.891+09:00  WARN 13392 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:45:57.215+09:00  INFO 13392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:45:57.588+09:00  INFO 13392 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f91fbda
+2024-09-09T12:45:57.591+09:00  INFO 13392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:45:57.846+09:00  INFO 13392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:45:57.875+09:00  INFO 13392 --- [main] web.AppStart                             : Started AppStart in 3.803 seconds (process running for 4.29)
+2024-09-09T12:45:59.517+09:00  INFO 13392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T12:46:26.850+09:00  INFO 712 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 712 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:46:26.854+09:00  INFO 712 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:46:27.737+09:00  WARN 712 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:46:28.343+09:00  INFO 712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:46:28.357+09:00  INFO 712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:46:28.357+09:00  INFO 712 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:46:28.437+09:00  INFO 712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:46:28.438+09:00  INFO 712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1513 ms
+2024-09-09T12:46:28.838+09:00  WARN 712 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:46:29.103+09:00  INFO 712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:46:29.480+09:00  INFO 712 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e6ec74
+2024-09-09T12:46:29.482+09:00  INFO 712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:46:29.731+09:00  INFO 712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:46:29.746+09:00  INFO 712 --- [main] web.AppStart                             : Started AppStart in 3.452 seconds (process running for 3.881)
+2024-09-09T12:47:15.004+09:00  INFO 15280 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 15280 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:47:15.008+09:00  INFO 15280 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:47:15.943+09:00  WARN 15280 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:47:16.544+09:00  INFO 15280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:47:16.559+09:00  INFO 15280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:47:16.559+09:00  INFO 15280 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:47:16.638+09:00  INFO 15280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:47:16.639+09:00  INFO 15280 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1560 ms
+2024-09-09T12:47:17.047+09:00  WARN 15280 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:47:17.300+09:00  INFO 15280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:47:17.721+09:00  INFO 15280 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ffced4e
+2024-09-09T12:47:17.724+09:00  INFO 15280 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:47:17.964+09:00  INFO 15280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:47:17.979+09:00  INFO 15280 --- [main] web.AppStart                             : Started AppStart in 3.541 seconds (process running for 3.943)
+2024-09-09T12:47:21.104+09:00  INFO 15280 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T12:48:14.982+09:00  INFO 14892 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 14892 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T12:48:14.985+09:00  INFO 14892 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T12:48:15.891+09:00  WARN 14892 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T12:48:16.460+09:00  INFO 14892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T12:48:16.475+09:00  INFO 14892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T12:48:16.475+09:00  INFO 14892 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T12:48:16.556+09:00  INFO 14892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T12:48:16.557+09:00  INFO 14892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1499 ms
+2024-09-09T12:48:16.961+09:00  WARN 14892 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T12:48:17.216+09:00  INFO 14892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T12:48:17.591+09:00  INFO 14892 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f91fbda
+2024-09-09T12:48:17.594+09:00  INFO 14892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T12:48:17.836+09:00  INFO 14892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T12:48:17.854+09:00  INFO 14892 --- [main] web.AppStart                             : Started AppStart in 3.447 seconds (process running for 3.94)
+2024-09-09T12:48:18.012+09:00  INFO 14892 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:45:01.632+09:00  INFO 12112 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 12112 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:45:01.635+09:00  INFO 12112 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:45:02.492+09:00  WARN 12112 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:45:03.088+09:00  INFO 12112 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:45:03.105+09:00  INFO 12112 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:45:03.106+09:00  INFO 12112 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:45:03.186+09:00  INFO 12112 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:45:03.187+09:00  INFO 12112 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1485 ms
+2024-09-09T14:45:03.603+09:00  WARN 12112 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-09-09T14:45:03.877+09:00  INFO 12112 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:45:04.258+09:00  INFO 12112 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a2bf50f
+2024-09-09T14:45:04.261+09:00  INFO 12112 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:45:04.483+09:00  INFO 12112 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:45:04.494+09:00  INFO 12112 --- [main] web.AppStart                             : Started AppStart in 3.427 seconds (process running for 3.847)
+2024-09-09T14:51:19.040+09:00  INFO 9924 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 9924 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:51:19.051+09:00  INFO 9924 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:51:20.082+09:00  WARN 9924 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:51:20.843+09:00  INFO 9924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:51:20.859+09:00  INFO 9924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:51:20.859+09:00  INFO 9924 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:51:20.947+09:00  INFO 9924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:51:20.947+09:00  INFO 9924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1805 ms
+2024-09-09T14:51:21.629+09:00  INFO 9924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:51:22.002+09:00  INFO 9924 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@138f0661
+2024-09-09T14:51:22.005+09:00  INFO 9924 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:51:22.200+09:00  INFO 9924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:51:22.218+09:00  INFO 9924 --- [main] web.AppStart                             : Started AppStart in 3.767 seconds (process running for 4.257)
+2024-09-09T14:51:34.374+09:00  INFO 9924 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:53:19.753+09:00  INFO 9632 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 9632 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:53:19.756+09:00  INFO 9632 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:53:20.616+09:00  WARN 9632 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:53:21.180+09:00  INFO 9632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:53:21.193+09:00  INFO 9632 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:53:21.194+09:00  INFO 9632 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:53:21.272+09:00  INFO 9632 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:53:21.273+09:00  INFO 9632 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1457 ms
+2024-09-09T14:53:21.943+09:00  INFO 9632 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:53:22.321+09:00  INFO 9632 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@448462f0
+2024-09-09T14:53:22.324+09:00  INFO 9632 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:53:22.533+09:00  INFO 9632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:53:22.560+09:00  INFO 9632 --- [main] web.AppStart                             : Started AppStart in 3.372 seconds (process running for 3.772)
+2024-09-09T14:53:26.091+09:00  INFO 9632 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:53:50.202+09:00  INFO 3204 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 3204 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:53:50.205+09:00  INFO 3204 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:53:51.104+09:00  WARN 3204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:53:51.675+09:00  INFO 3204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:53:51.692+09:00  INFO 3204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:53:51.693+09:00  INFO 3204 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:53:51.803+09:00  INFO 3204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:53:51.804+09:00  INFO 3204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1530 ms
+2024-09-09T14:53:52.675+09:00  INFO 3204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:53:53.063+09:00  INFO 3204 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@448462f0
+2024-09-09T14:53:53.066+09:00  INFO 3204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:53:53.290+09:00  INFO 3204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:53:53.319+09:00  INFO 3204 --- [main] web.AppStart                             : Started AppStart in 3.707 seconds (process running for 4.203)
+2024-09-09T14:53:56.454+09:00  INFO 3204 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:54:41.658+09:00  INFO 10236 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 10236 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:54:41.661+09:00  INFO 10236 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:54:42.542+09:00  WARN 10236 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:54:43.100+09:00  INFO 10236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:54:43.117+09:00  INFO 10236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:54:43.118+09:00  INFO 10236 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:54:43.198+09:00  INFO 10236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:54:43.199+09:00  INFO 10236 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1480 ms
+2024-09-09T14:54:43.874+09:00  INFO 10236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:54:44.248+09:00  INFO 10236 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@138f0661
+2024-09-09T14:54:44.251+09:00  INFO 10236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:54:44.455+09:00  INFO 10236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:54:44.484+09:00  INFO 10236 --- [main] web.AppStart                             : Started AppStart in 3.379 seconds (process running for 3.785)
+2024-09-09T14:54:58.500+09:00  INFO 10236 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:57:25.404+09:00  INFO 4004 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 4004 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:57:25.410+09:00  INFO 4004 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:57:26.338+09:00  WARN 4004 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:57:26.925+09:00  INFO 4004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:57:26.939+09:00  INFO 4004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:57:26.939+09:00  INFO 4004 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:57:27.065+09:00  INFO 4004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:57:27.067+09:00  INFO 4004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1578 ms
+2024-09-09T14:57:27.817+09:00  INFO 4004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:57:28.201+09:00  INFO 4004 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@138f0661
+2024-09-09T14:57:28.203+09:00  INFO 4004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:57:28.430+09:00  INFO 4004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:57:28.477+09:00  INFO 4004 --- [main] web.AppStart                             : Started AppStart in 3.632 seconds (process running for 4.093)
+2024-09-09T14:57:44.383+09:00  INFO 4004 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T14:58:57.908+09:00  INFO 12420 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 12420 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T14:58:57.911+09:00  INFO 12420 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T14:58:58.924+09:00  WARN 12420 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T14:58:59.556+09:00  INFO 12420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T14:58:59.574+09:00  INFO 12420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T14:58:59.574+09:00  INFO 12420 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T14:58:59.660+09:00  INFO 12420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T14:58:59.661+09:00  INFO 12420 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1682 ms
+2024-09-09T14:59:00.358+09:00  INFO 12420 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T14:59:00.726+09:00  INFO 12420 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79df80a4
+2024-09-09T14:59:00.729+09:00  INFO 12420 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T14:59:00.924+09:00  INFO 12420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T14:59:00.953+09:00  INFO 12420 --- [main] web.AppStart                             : Started AppStart in 3.625 seconds (process running for 4.086)
+2024-09-09T14:59:03.014+09:00  INFO 12420 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T15:30:19.379+09:00  INFO 15256 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 15256 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T15:30:19.384+09:00  INFO 15256 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T15:30:20.296+09:00  WARN 15256 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T15:30:20.894+09:00  INFO 15256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T15:30:20.912+09:00  INFO 15256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T15:30:20.913+09:00  INFO 15256 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T15:30:20.994+09:00  INFO 15256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T15:30:20.995+09:00  INFO 15256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1541 ms
+2024-09-09T15:30:21.691+09:00  INFO 15256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T15:30:22.054+09:00  INFO 15256 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@120aa40b
+2024-09-09T15:30:22.057+09:00  INFO 15256 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T15:30:22.295+09:00  INFO 15256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T15:30:22.324+09:00  INFO 15256 --- [main] web.AppStart                             : Started AppStart in 3.498 seconds (process running for 3.909)
+2024-09-09T15:30:25.339+09:00  INFO 15256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T15:30:49.267+09:00  INFO 1744 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 1744 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T15:30:49.271+09:00  INFO 1744 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T15:30:50.179+09:00  WARN 1744 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T15:30:50.783+09:00  INFO 1744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T15:30:50.799+09:00  INFO 1744 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T15:30:50.799+09:00  INFO 1744 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T15:30:50.896+09:00  INFO 1744 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T15:30:50.897+09:00  INFO 1744 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1558 ms
+2024-09-09T15:30:51.651+09:00  INFO 1744 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T15:30:52.149+09:00  INFO 1744 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@571a663c
+2024-09-09T15:30:52.152+09:00  INFO 1744 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T15:30:52.376+09:00  INFO 1744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T15:30:52.418+09:00  INFO 1744 --- [main] web.AppStart                             : Started AppStart in 3.705 seconds (process running for 4.154)
+2024-09-09T15:31:09.788+09:00  INFO 14376 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 14376 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T15:31:09.797+09:00  INFO 14376 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T15:31:10.712+09:00  WARN 14376 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T15:31:11.263+09:00  INFO 14376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T15:31:11.278+09:00  INFO 14376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T15:31:11.279+09:00  INFO 14376 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T15:31:11.363+09:00  INFO 14376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T15:31:11.363+09:00  INFO 14376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1497 ms
+2024-09-09T15:31:12.086+09:00  INFO 14376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T15:31:12.432+09:00  INFO 14376 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@120aa40b
+2024-09-09T15:31:12.435+09:00  INFO 14376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T15:31:12.687+09:00  INFO 14376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T15:31:12.711+09:00  INFO 14376 --- [main] web.AppStart                             : Started AppStart in 3.469 seconds (process running for 3.882)
+2024-09-09T15:31:15.563+09:00  INFO 14376 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T15:34:54.912+09:00  INFO 4372 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 4372 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T15:34:54.916+09:00  INFO 4372 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T15:34:55.790+09:00  WARN 4372 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T15:34:56.431+09:00  INFO 4372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T15:34:56.445+09:00  INFO 4372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T15:34:56.447+09:00  INFO 4372 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T15:34:56.529+09:00  INFO 4372 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T15:34:56.530+09:00  INFO 4372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1549 ms
+2024-09-09T15:34:57.249+09:00  INFO 4372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T15:34:57.633+09:00  INFO 4372 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ad6443
+2024-09-09T15:34:57.635+09:00  INFO 4372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T15:34:57.878+09:00  INFO 4372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T15:34:57.891+09:00  INFO 4372 --- [main] web.AppStart                             : Started AppStart in 3.54 seconds (process running for 4.118)
+2024-09-09T15:35:03.466+09:00  INFO 4372 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-09T15:37:35.468+09:00  INFO 14464 --- [main] web.AppStart                             : Starting AppStart using Java 17.0.11 with PID 14464 (C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy\build\classes\java\main started by tj-bu-703-06 in C:\Users\tj-bu-703-06\IdeaProjects\TJ_2024A_SpringPy)
+2024-09-09T15:37:35.474+09:00  INFO 14464 --- [main] web.AppStart                             : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T15:37:36.413+09:00  WARN 14464 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[web]' package. Please check your configuration.
+2024-09-09T15:37:37.213+09:00  INFO 14464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T15:37:37.228+09:00  INFO 14464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T15:37:37.228+09:00  INFO 14464 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-09-09T15:37:37.321+09:00  INFO 14464 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-09T15:37:37.322+09:00  INFO 14464 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1778 ms
+2024-09-09T15:37:38.095+09:00  INFO 14464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T15:37:38.488+09:00  INFO 14464 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68e2d03e
+2024-09-09T15:37:38.491+09:00  INFO 14464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T15:37:38.705+09:00  INFO 14464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-09-09T15:37:38.727+09:00  INFO 14464 --- [main] web.AppStart                             : Started AppStart in 3.859 seconds (process running for 4.274)
+2024-09-09T15:37:47.466+09:00  INFO 14464 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
