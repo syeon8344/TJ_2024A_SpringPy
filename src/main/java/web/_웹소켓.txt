@@ -30,3 +30,15 @@
             3) registerWebSocketHandlers 메소드 구현
                 - registry.addHandler('핸들러객체', 'ws서버소켓주소')
             4) 웹서버 소켓 핸들러/컨트롤러 만들기
+                - ChatController 클래스 만들기
+                - extends TextWebSocketHandler 클래스 상속
+                1. 클라이언트가 서버 소켓과 접속 요청이 성공 했을때
+                    afterConnectionEstablished 메소드 실행
+                2. 클라이언트가 서버 소켓과 접속이 끊겼을때
+                    afterConnectionClosed 메소드 실행
+
+[3] 클라이언트 소켓 구현 in JS
+    1. JS에서 클라이언트 소켓 구현 하는 방법
+        - WebSocket 클래스 이용한 클라이언트 소켓 구현
+        1. 클라이언트 소켓 생성
+        new WebSocket("서버소켓의URL")
