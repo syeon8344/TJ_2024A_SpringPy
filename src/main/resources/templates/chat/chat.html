@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #msgBox {
+            width: 500px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .msgTo {
+            text-align: left;
+            background-color: yellow;
+        }
+        .msgFrom {
+            text-align: right;
+        }
+
+        .info {
+            text-align: center;
+            color: grey;
+        }
+    </style>
 </head>
 <body>
-    chat.html
+    <div id="msgBox"></div>
+        
+    </div>
+    <div>
+        <input type="text" id="msgInputBox" placeholder="메시지를 입력하세요"/>
+        <button type="button" onclick="onMsgSend()">메시지 전송</button>
+    </div>
     <script src="/js/chat/chat.js"></script>
 </body>
 </html>

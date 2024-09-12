@@ -1,6 +1,6 @@
 [0] HTTP 프로토콜: 이동 문자 전송 규약
     클라이언트 1.--request-->  2.<--response-- 서버
-    * HTTP 기반 통신은 요청이 있어야 응답이 가능: 상태유지 X
+    * HTTP 기반 통신은 요청이 있어야 응답이 가능: 무상태(상태유지 X)
 
 [1] 웹소켓 websocket
     1. 정의: ws 프로토콜을 기반으로 클라이언트와 서버 사이에 *지속적인 양방향* 연결
@@ -26,7 +26,7 @@
         1. 웹소켓 라이브러리 dependency 추가: build.gradle  implementation 'org.springframework.boot:spring-boot-starter-websocket'
         2. 서버 소켓 핸들러(컨트롤러) 추가
             1) WebSocketConfig 클래스 생성
-            2) class implements WebSocketConfigurer, 인터페이스 구현
+            2) class implements WebSocketConfigurer, 인터페이스 구현  // 스프링부트 3.x
             3) registerWebSocketHandlers 메소드 구현
                 - registry.addHandler('핸들러객체', 'ws서버소켓주소')
             4) 웹서버 소켓 핸들러/컨트롤러 만들기
